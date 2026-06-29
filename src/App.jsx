@@ -3,11 +3,28 @@ import { useState, useEffect } from "react";
 const NAV = ["About", "Experience", "Projects", "Skills", "Contact"];
 
 const SKILLS = [
-  "JavaScript", "TypeScript", "Node.js", "React.js", "Next.js",
-  "PostgreSQL", "MongoDB", "MySQL", "Redis",
-  "TypeORM", "Prisma", "Drizzle", "GraphQL", "REST API",
-  "Docker", "AWS", "Nginx", "CI/CD", "Socket.IO",
-  "Redux", "RTK Query", "Git", "Supabase", "Firebase",
+  // Languages
+  "JavaScript", "TypeScript", "PHP", "Python",
+  // Frontend
+  "React.js", "Next.js", "TailwindCSS", "Redux", "RTK Query", "Zustand",
+  // Backend
+  "Node.js", "Express.js", "FastAPI", "Django", "Laravel", "WordPress",
+  // Databases
+  "PostgreSQL", "MongoDB", "MySQL", "Redis", "Supabase", "Firebase",
+  // ORMs & Query
+  "TypeORM", "Prisma", "Drizzle", "Mongoose",
+  // APIs & Protocols
+  "REST API", "GraphQL", "WebRTC", "Socket.IO",
+  // Messaging & Queues
+  "BullMQ", "RabbitMQ",
+  // DevOps & Cloud
+  "Docker", "AWS", "AWS S3", "Nginx", "CI/CD", "Automation",
+  // Testing
+  "Unit Testing", "E2E Testing", "TDD",
+  // AI & Data
+  "AI Integration", "RAG", "Fine-tuning", "Data Scraping",
+  // Tools
+  "Git",
 ];
 
 const EXPERIENCE = [
@@ -307,7 +324,7 @@ export default function Portfolio() {
         <h1 className="hero-name">Habibul<br /><span>Islam</span></h1>
         <p className="hero-role">Building high-scale business systems &amp; production-grade web applications</p>
         <p className="hero-bio">
-          Full-stack developer with 6+ years of experience building high-scale business systems including
+          Full-stack developer with half a decade of experience building high-scale business systems including
           inventory, e-commerce, and data automation platforms. I design and maintain applications that handle
           10,000+ daily transactions, multi-outlet operations, and complex business workflows —
           with a focus on reliability, performance, and scalable architecture.

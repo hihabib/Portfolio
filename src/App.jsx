@@ -7,7 +7,7 @@ const SKILLS = [
   "PostgreSQL", "MongoDB", "MySQL", "Redis",
   "TypeORM", "Prisma", "Drizzle", "GraphQL", "REST API",
   "Docker", "AWS", "Nginx", "CI/CD", "Socket.IO",
-  "Redux", "RTK Query", "Git",
+  "Redux", "RTK Query", "Git", "Supabase", "Firebase",
 ];
 
 const EXPERIENCE = [
@@ -17,9 +17,9 @@ const EXPERIENCE = [
     period: "Nov 2024 – Present",
     location: "USA (Remote)",
     bullets: [
-      "Architected a high-traffic e-commerce platform (Amani Forged) serving 2,000+ daily visitors with advanced product customization, dynamic pricing, and 3D AR visualization.",
-      "Led performance optimizations reducing LCP from 4.2s to 0.9s, significantly improving Core Web Vitals.",
-      "Designed a scalable multi-tenant platform supporting 300+ reseller tenants with secure data isolation.",
+      "Architected a high-traffic e-commerce platform serving 2,000+ daily visitors, integrating advanced product customization, dynamic pricing, and 3D product visualization using Next.js and Node.js.",
+      "Led frontend performance optimization that reduced LCP from 4.2s to 0.9s, improving Core Web Vitals scores across all pages.",
+      "Designed a scalable multi-tenant whitelabel system supporting 300+ reseller tenants with secure data isolation and automated onboarding workflows.",
     ],
   },
   {
@@ -28,9 +28,9 @@ const EXPERIENCE = [
     period: "Feb 2022 – Oct 2024",
     location: "Dhaka, Bangladesh (Remote)",
     bullets: [
-      "Integrated Driver Right API into YMM filtering, improving product matching accuracy from 70% to 95% across multiple e-commerce platforms.",
-      "Implemented Bunny CDN across client sites, increasing GTMetrix performance from 55% to 99%.",
-      "Delivered 5 e-commerce projects end-to-end from initial setup to production handover.",
+      "Integrated Driver Right API into a YMM (Year–Make–Model) filtering system, improving product matching accuracy from 70% to 95% across multiple client e-commerce platforms.",
+      "Applied Bunny CDN across 5+ client sites, improving GTMetrix performance scores from 55% to 99% through optimized asset delivery and caching strategy.",
+      "Delivered 5 e-commerce projects end-to-end — averaging 3–4 months per project — managing full lifecycle from requirements to production handover, with zero post-launch critical bugs reported by clients.",
     ],
   },
 ];
@@ -39,17 +39,17 @@ const PROJECTS = [
   {
     name: "Amani Forged",
     tag: "E-Commerce Platform",
-    desc: "Full-stack e-commerce platform for a premium custom wheel brand. Features 3D interactive wheel configurator with AR visualization, bidirectional NetSuite ERP sync, automated S3 media pipelines, and a block-based transactional email builder.",
-    highlights: ["60% faster wheel configuration", "100% manual inventory overhead eliminated", "~15% abandoned cart recovery"],
-    tech: ["Node.js", "React.js", "PostgreSQL", "AWS S3", "BullMQ", "Socket.IO"],
+    desc: "E-commerce platform for a custom forged wheel brand, built as a standalone client project with its own modular architecture and ERP integration. Features a 3D interactive wheel configurator with real-time pricing, AR visualization, and automated post-purchase workflows.",
+    highlights: ["LCP reduced from 4.2s to 0.9s", "~60% reduction in manual order handling", "~15% abandoned cart recovery"],
+    tech: ["Next.js", "Node.js", "PostgreSQL", "AWS S3", "BullMQ", "Socket.IO"],
     link: "https://amaniforged.com",
     detailsLink: "https://tinyurl.com/4emm7eph",
   },
   {
-    name: "ZMent",
-    tag: "Inventory Management System",
-    desc: "Full-stack multi-outlet inventory management platform processing 10,000+ daily transactions. Includes POS with 5+ payment methods, staged batch stock management, fine-grained RBAC, and multi-format financial reporting.",
-    highlights: ["10,000+ daily transactions", "50+ active users", "40% faster checkout at peak"],
+    name: "Inventory Management System",
+    tag: "Inventory & POS",
+    desc: "Full-stack multi-outlet inventory management platform processing 10,000+ daily transactions across production facilities and retail outlets, built with PostgreSQL and Redis to ensure consistency and uptime under load.",
+    highlights: ["10,000+ daily transactions", "~40% faster checkout at peak", "70%+ reduction in inventory commit errors"],
     tech: ["Node.js", "React.js", "PostgreSQL", "Redis", "Socket.IO"],
     link: null,
     detailsLink: "https://tinyurl.com/4b2cshx7",
@@ -57,7 +57,7 @@ const PROJECTS = [
   {
     name: "Data Scraper Platform",
     tag: "Internal Infrastructure",
-    desc: "Distributed web scraping infrastructure collecting and normalizing product data across multiple sources. Isolated Docker container per source, stealth Playwright automation, step-level pipeline resume, and real-time Redis log streaming.",
+    desc: "Internal distributed scraping platform collecting and normalizing large-scale product data across multiple vendor sources, with real-time monitoring and data quality analytics.",
     highlights: ["288,820+ products", "441,755+ images", "227GB+ storage, zero data loss on resume"],
     tech: ["Python", "Playwright", "Docker", "Redis", "PostgreSQL", "AWS S3"],
     link: null,
@@ -157,7 +157,6 @@ export default function Portfolio() {
           transition: background 0.25s, color 0.25s;
         }
 
-        /* NAV */
         nav {
           position: fixed; top: 0; left: 0; right: 0;
           z-index: 100;
@@ -169,17 +168,13 @@ export default function Portfolio() {
           height: 60px;
           transition: background 0.25s, border-color 0.25s;
         }
-        .nav-logo {
-          font-size: 1.1rem; font-weight: 700;
-          color: var(--text); letter-spacing: -0.5px;
-        }
+        .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
         .nav-logo span { color: var(--accent); }
         .nav-links { display: flex; gap: 2rem; align-items: center; }
         .nav-links button {
           background: none; border: none; color: var(--muted);
           cursor: pointer; font-size: 0.85rem; letter-spacing: 0.5px;
-          transition: color 0.2s; padding: 0;
-          position: relative;
+          transition: color 0.2s; padding: 0; position: relative;
         }
         .nav-links button::after {
           content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
@@ -189,26 +184,17 @@ export default function Portfolio() {
         .nav-links button:hover { color: var(--accent); }
         .nav-links button:hover::after { transform: scaleX(1); }
 
-        /* THEME TOGGLE */
         .theme-toggle {
           background: var(--surface); border: 1px solid var(--border);
           border-radius: 20px; cursor: pointer;
           display: flex; align-items: center; justify-content: center;
-          width: 36px; height: 36px;
-          color: var(--muted);
-          transition: all 0.2s;
-          flex-shrink: 0;
+          width: 36px; height: 36px; color: var(--muted);
+          transition: all 0.2s; flex-shrink: 0;
         }
         .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
-
         .nav-right { display: flex; align-items: center; gap: 1.25rem; }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--text); font-size: 1.4rem; }
 
-        .hamburger {
-          display: none; background: none; border: none;
-          cursor: pointer; color: var(--text); font-size: 1.4rem;
-        }
-
-        /* MOBILE NAV */
         .mobile-menu {
           position: fixed; top: 60px; left: 0; right: 0;
           background: var(--surface); border-bottom: 1px solid var(--border);
@@ -216,35 +202,15 @@ export default function Portfolio() {
           display: flex; flex-direction: column; gap: 1rem;
           box-shadow: var(--shadow);
         }
-        .mobile-menu button {
-          background: none; border: none; color: var(--muted);
-          cursor: pointer; font-size: 1rem; text-align: left; padding: 0;
-        }
+        .mobile-menu button { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1rem; text-align: left; padding: 0; }
         .mobile-menu button:hover { color: var(--text); }
 
-        /* HERO */
-        #about {
-          padding: 140px 2rem 80px;
-          max-width: 900px; margin: 0 auto;
-        }
-        .hero-eyebrow {
-          font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
-          color: var(--accent); margin-bottom: 1rem;
-        }
-        .hero-name {
-          font-size: clamp(2.2rem, 5vw, 3.5rem);
-          font-weight: 800; line-height: 1.1;
-          letter-spacing: -1.5px; margin-bottom: 0.75rem;
-        }
+        #about { padding: 140px 2rem 80px; max-width: 900px; margin: 0 auto; }
+        .hero-eyebrow { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+        .hero-name { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 0.75rem; }
         .hero-name span { color: var(--accent); }
-        .hero-role {
-          font-size: clamp(1rem, 2.5vw, 1.2rem);
-          color: var(--muted); margin-bottom: 1.5rem; font-weight: 400;
-        }
-        .hero-bio {
-          color: var(--muted); max-width: 600px;
-          font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem;
-        }
+        .hero-role { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--muted); margin-bottom: 1.5rem; font-weight: 400; }
+        .hero-bio { color: var(--muted); max-width: 600px; font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem; }
         .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
         .btn {
           display: inline-flex; align-items: center; gap: 0.4rem;
@@ -254,31 +220,14 @@ export default function Portfolio() {
         }
         .btn-primary { background: var(--accent); color: #fff; }
         .btn-primary:hover { background: #5a52d5; }
-        .btn-outline {
-          background: transparent; color: var(--text);
-          border: 1px solid var(--border);
-        }
+        .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
         .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* SECTIONS */
         .section { padding: 70px 2rem; max-width: 900px; margin: 0 auto; }
-        .section-title {
-          font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px;
-          margin-bottom: 2.5rem; position: relative; display: inline-block;
-        }
-        .section-title::after {
-          content: ''; position: absolute;
-          bottom: -8px; left: 0; width: 40px; height: 3px;
-          background: var(--accent); border-radius: 2px;
-        }
+        .section-title { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 2.5rem; position: relative; display: inline-block; }
+        .section-title::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 40px; height: 3px; background: var(--accent); border-radius: 2px; }
 
-        /* EXPERIENCE */
-        .exp-item {
-          border: 1px solid var(--border); border-radius: 10px;
-          padding: 1.5rem; margin-bottom: 1.25rem;
-          background: var(--surface);
-          transition: border-color 0.2s, box-shadow 0.2s;
-        }
+        .exp-item { border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; margin-bottom: 1.25rem; background: var(--surface); transition: border-color 0.2s, box-shadow 0.2s; }
         .exp-item:hover { border-color: var(--accent); box-shadow: var(--shadow); }
         .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; }
         .exp-company { font-weight: 700; font-size: 1rem; color: var(--accent); }
@@ -289,83 +238,35 @@ export default function Portfolio() {
         .exp-bullets li { font-size: 0.88rem; color: var(--muted); padding-left: 1rem; position: relative; }
         .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
 
-        /* PROJECTS */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
-        .project-card {
-          border: 1px solid var(--border); border-radius: 10px;
-          padding: 1.5rem; background: var(--surface);
-          transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-          display: flex; flex-direction: column; gap: 0.75rem;
-        }
+        .project-card { border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; background: var(--surface); transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; gap: 0.75rem; }
         .project-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
         .project-top { display: flex; justify-content: space-between; align-items: flex-start; }
         .project-name { font-weight: 700; font-size: 1rem; }
-        .project-link {
-          color: var(--accent); font-size: 0.78rem; text-decoration: none;
-          font-weight: 600; white-space: nowrap;
-          border: 1px solid var(--accent);
-          padding: 0.15rem 0.5rem; border-radius: 4px;
-          transition: background 0.2s, color 0.2s;
-        }
+        .project-link { color: var(--accent); font-size: 0.78rem; text-decoration: none; font-weight: 600; white-space: nowrap; border: 1px solid var(--accent); padding: 0.15rem 0.5rem; border-radius: 4px; transition: background 0.2s, color 0.2s; }
         .project-link:hover { background: var(--accent); color: #fff; }
-        .project-tag {
-          display: inline-block; font-size: 0.7rem; letter-spacing: 0.5px;
-          text-transform: uppercase; color: var(--accent);
-          background: var(--tag-bg); padding: 0.2rem 0.5rem;
-          border-radius: 4px; width: fit-content;
-        }
+        .project-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.5px; text-transform: uppercase; color: var(--accent); background: var(--tag-bg); padding: 0.2rem 0.5rem; border-radius: 4px; width: fit-content; }
         .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
         .project-highlights { display: flex; flex-direction: column; gap: 0.3rem; }
-        .project-highlights span {
-          font-size: 0.78rem; color: var(--accent2);
-          display: flex; align-items: center; gap: 0.4rem;
-        }
+        .project-highlights span { font-size: 0.78rem; color: var(--accent2); display: flex; align-items: center; gap: 0.4rem; }
         .project-highlights span::before { content: '✦'; font-size: 0.6rem; }
         .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
-        .tech-pill {
-          font-size: 0.72rem; background: var(--tag-bg);
-          border: 1px solid var(--border); border-radius: 4px;
-          padding: 0.15rem 0.5rem; color: var(--muted);
-        }
+        .tech-pill { font-size: 0.72rem; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 4px; padding: 0.15rem 0.5rem; color: var(--muted); }
 
-        /* SKILLS */
         .skills-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-        .skill-badge {
-          font-size: 0.82rem; padding: 0.35rem 0.85rem;
-          background: var(--surface); border: 1px solid var(--border);
-          border-radius: 6px; color: var(--text);
-          transition: border-color 0.2s, color 0.2s;
-        }
+        .skill-badge { font-size: 0.82rem; padding: 0.35rem 0.85rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; color: var(--text); transition: border-color 0.2s, color 0.2s; }
         .skill-badge:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* CONTACT */
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
-        .contact-card {
-          border: 1px solid var(--border); border-radius: 10px;
-          padding: 1.25rem; background: var(--surface);
-          text-decoration: none; display: flex; flex-direction: column; gap: 0.3rem;
-          transition: border-color 0.2s, box-shadow 0.2s;
-          position: relative;
-        }
-        .contact-card::after {
-          content: '↗'; position: absolute; top: 1rem; right: 1rem;
-          font-size: 0.8rem; color: var(--accent); opacity: 0.6;
-          transition: opacity 0.2s, transform 0.2s;
-        }
+        .contact-card { border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; background: var(--surface); text-decoration: none; display: flex; flex-direction: column; gap: 0.3rem; transition: border-color 0.2s, box-shadow 0.2s; position: relative; }
+        .contact-card::after { content: '↗'; position: absolute; top: 1rem; right: 1rem; font-size: 0.8rem; color: var(--accent); opacity: 0.6; transition: opacity 0.2s, transform 0.2s; }
         .contact-card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
         .contact-card:hover::after { opacity: 1; transform: translate(2px, -2px); }
         .contact-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
         .contact-value { font-size: 0.88rem; color: var(--accent); font-weight: 500; text-decoration: underline; text-decoration-color: transparent; transition: text-decoration-color 0.2s; }
         .contact-card:hover .contact-value { text-decoration-color: var(--accent); }
 
-        /* FOOTER */
-        footer {
-          text-align: center; padding: 2rem;
-          font-size: 0.8rem; color: var(--muted);
-          border-top: 1px solid var(--border);
-        }
-
-        /* DIVIDER */
+        footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border); }
         .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
         @media (max-width: 640px) {
@@ -401,19 +302,18 @@ export default function Portfolio() {
         </div>
       )}
 
-      {/* HERO */}
       <section id="about">
         <p className="hero-eyebrow">Full-Stack Developer</p>
         <h1 className="hero-name">Habibul<br /><span>Islam</span></h1>
         <p className="hero-role">Building high-scale business systems &amp; production-grade web applications</p>
         <p className="hero-bio">
-          Full-stack developer with experience since 2020, specializing in inventory systems,
-          e-commerce platforms, and data automation. I design and maintain applications that handle
+          Full-stack developer with 6+ years of experience building high-scale business systems including
+          inventory, e-commerce, and data automation platforms. I design and maintain applications that handle
           10,000+ daily transactions, multi-outlet operations, and complex business workflows —
           with a focus on reliability, performance, and scalable architecture.
         </p>
         <div className="hero-links">
-          <a className="btn btn-primary" href="https://drive.google.com/file/d/1AVR1bmlWEkkEwSejzPUKLRaAvJMI4OR4/view?usp=sharing" target="_blank" rel="noreferrer">Download Resume ↓</a>
+          <a className="btn btn-primary" href="https://drive.google.com/file/d/1fsg5ETEemjxuZPdR6hPaiXqi6nfWkFSI/view?usp=sharing" target="_blank" rel="noreferrer">Download Resume ↓</a>
           <a className="btn btn-outline" href="https://github.com/hihabib" target="_blank" rel="noreferrer">GitHub ↗</a>
           <a className="btn btn-outline" href="https://www.linkedin.com/in/habibul-islam-8169401aa/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
           <a className="btn btn-outline" href="mailto:habibulislam6862@gmail.com">Email Me</a>
@@ -422,7 +322,6 @@ export default function Portfolio() {
 
       <hr className="divider" />
 
-      {/* EXPERIENCE */}
       <Section id="experience" title="Experience">
         {EXPERIENCE.map((e) => (
           <div className="exp-item" key={e.company}>
@@ -441,7 +340,6 @@ export default function Portfolio() {
 
       <hr className="divider" />
 
-      {/* PROJECTS */}
       <Section id="projects" title="Projects">
         <div className="projects-grid">
           {PROJECTS.map((p) => (
@@ -468,7 +366,6 @@ export default function Portfolio() {
 
       <hr className="divider" />
 
-      {/* SKILLS */}
       <Section id="skills" title="Skills">
         <div className="skills-grid">
           {SKILLS.map((s) => <span className="skill-badge" key={s}>{s}</span>)}
@@ -477,7 +374,6 @@ export default function Portfolio() {
 
       <hr className="divider" />
 
-      {/* CONTACT */}
       <Section id="contact" title="Contact">
         <div className="contact-grid">
           <a className="contact-card" href="mailto:habibulislam6862@gmail.com">
@@ -495,6 +391,14 @@ export default function Portfolio() {
           <a className="contact-card" href="https://stackoverflow.com/users/13571609/habib" target="_blank" rel="noreferrer">
             <span className="contact-label">Stack Overflow</span>
             <span className="contact-value">users/13571609/habib</span>
+          </a>
+          <a className="contact-card" href="https://www.upwork.com/freelancers/habibulislam23" target="_blank" rel="noreferrer">
+            <span className="contact-label">Upwork</span>
+            <span className="contact-value">freelancers/habibulislam23</span>
+          </a>
+          <a className="contact-card" href="https://www.freelancer.com/u/habibulislam6868" target="_blank" rel="noreferrer">
+            <span className="contact-label">Freelancer</span>
+            <span className="contact-value">u/habibulislam6868</span>
           </a>
         </div>
       </Section>

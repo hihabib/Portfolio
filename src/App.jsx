@@ -50,6 +50,28 @@ const EXPERIENCE = [
       "Delivered 5 e-commerce projects end-to-end — averaging 3–4 months per project — managing full lifecycle from requirements to production handover, with zero post-launch critical bugs reported by clients.",
     ],
   },
+  {
+    company: "Upwork",
+    role: "WordPress & PHP Developer (Contract)",
+    period: "Sep 2021 – Feb 2022",
+    location: "Remote (Freelance)",
+    bullets: [
+      "Built and customized WordPress sites, developing and modifying themes and plugins using PHP, HTML, CSS, and JavaScript.",
+      "Handled WooCommerce store setups, third-party integrations (Constant Contact), newsletter functionality, and technical SEO including 301 redirects.",
+      "Maintained a perfect 5.0 rating across all 8 completed jobs — endorsed by clients for Quality, Reliability, and Professionalism.",
+    ],
+  },
+  {
+    company: "Freelancer.com",
+    role: "Web Developer — WordPress, Shopify & PHP (Contract)",
+    period: "May 2020 – Dec 2021",
+    location: "Remote (Freelance)",
+    bullets: [
+      "Delivered WordPress, Shopify, and PHP projects for international clients across Canada, USA, and Australia — customizing themes, building pages, and writing frontend code.",
+      "Managed full client communication cycle from requirements and scope to delivery and feedback incorporation.",
+      "Maintained a perfect 5.0 rating with multiple clients returning for additional projects, praised for delivering results ahead of deadline.",
+    ],
+  },
 ];
 
 const PROJECTS = [

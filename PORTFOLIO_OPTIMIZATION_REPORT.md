@@ -49,6 +49,6 @@ The repository has no existing test command. The DOM checks ran against the isol
 ## Outstanding items
 
 - Run the frozen install, build, and lint in an environment with access to the registry. Complete the five-width browser review and collect screenshots there.
-- Replace the workflow figures with approved anonymized screenshots if available. Internal case studies are supplemented with verified project documentation links from the resume. The resume link has been updated with the current Google Drive PDF link (`https://drive.google.com/file/d/1CLD2y732U34ZsafLo95xRf-wowxO9bKP/view?usp=sharing`).
+- Replace the workflow figures with approved anonymized screenshots if available. Internal case studies are supplemented with verified project documentation links from the resume. The resume link has been updated with the current Google Drive PDF link (`https://drive.google.com/file/d/1LJ3TfsZnMvd3ZtWOBoZTS_QKcioC-yBE/view?usp=sharing`).
 - Verify logged-in LinkedIn access and the live social preview after an authorized release. The portfolio makes no claim about its own Core Web Vitals or accessibility certification.
 - The optional bilingual ERP demo was deferred to keep the portfolio focused on the three shipped projects. Arabic RTL, TanStack Query expertise, and finance compliance are absent from the professional claims.

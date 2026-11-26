@@ -5,10 +5,12 @@ export const profile = {
   phone: '+880 16219-10241',
   email: 'habibulislam6862@gmail.com',
   github: 'https://github.com/hihabib',
-  linkedin: 'https://linkedin.com/in/habibul-islam-8169401aa',
+  linkedin: 'https://www.linkedin.com/in/habibul-islam-8169401aa/',
   website: 'https://hihabib.github.io/Portfolio/',
-  resume: 'https://drive.google.com/file/d/1CLD2y732U34ZsafLo95xRf-wowxO9bKP/view?usp=sharing',
-  stack: ['TypeScript', 'Next.js', 'Node.js', 'REST API', 'React'],
+  resume: 'https://drive.google.com/file/d/1LJ3TfsZnMvd3ZtWOBoZTS_QKcioC-yBE/view?usp=sharing',
+  stack: ['TypeScript', 'React', 'Next.js', 'Node.js', 'Express.js', 'REST API Development'],
+  summary:
+    'Full-Stack Developer with 4+ years of experience building scalable SaaS platforms, high-throughput ERP systems, backend APIs, and automated data pipelines. Focused on system architecture, performance optimization, production reliability, and end-to-end engineering ownership.',
 }
 
 interface Metric {
@@ -37,43 +39,46 @@ export const projects: Project[] = [
     id: 'amani-forged',
     name: 'Amani Forged',
     title: 'Amani Forged — Custom E-commerce',
-    category: 'Frontend · E-commerce · Performance',
+    category: 'Elite Wheel Distributors · Frontend · E-commerce · Performance',
     period: 'Nov 2024 – May 2026',
     description:
-      'Led frontend architecture for a configurable storefront and ERP order and inventory sync, reducing LCP from 4.2s to 0.9s.',
+      'Led frontend architecture for a configurable storefront with real-time 3D visualization and product customization.',
     contribution:
-      'I led the frontend architecture, connected the ordering flow to the ERP, and optimized storefront loading.',
-    technologies: ['TypeScript', 'Next.js', 'React', 'Node.js', 'REST API'],
-    metrics: [{ value: '4.2s → 0.9s', label: 'Largest Contentful Paint' }],
-    workflow: ['Configure product', 'Place order', 'ERP processing'],
+      'Integrated ERP order processing and inventory synchronization, reducing manual order-handling steps by about 60% and LCP from 4.2s to 0.9s.',
+    technologies: ['TypeScript', 'Next.js', 'React', 'Node.js', 'REST API', 'PostgreSQL'],
+    metrics: [
+      { value: '4.2s → 0.9s', label: 'Largest Contentful Paint' },
+      { value: '~60%', label: 'fewer manual order-handling steps' },
+    ],
+    workflow: ['Configure product', '3D visualization', 'ERP processing'],
     website: 'https://amaniforged.com',
     docs: 'https://tinyurl.com/4emm7eph',
     details: [
       {
-        title: 'Configurable storefront',
-        body: 'I led the React and Next.js frontend architecture for interactive product customization and variant selection. The storefront brought configuration, pricing, and ordering into one workflow.',
+        title: 'Configurable storefront with 3D visualization',
+        body: 'I led the React and Next.js frontend architecture for interactive product customization, variant selection, and real-time 3D visualization. The storefront brought configuration, pricing, and ordering into one unified workflow.',
       },
       {
-        title: 'Connecting the storefront to ERP',
-        body: 'I integrated the storefront with ERP order processing and inventory synchronization. Customers could send customized selections through the ordering workflow, reducing manual order-handling steps by about 60%.',
+        title: 'ERP order and inventory synchronization',
+        body: 'I integrated the storefront with ERP order processing and inventory synchronization. Customers could send customized selections directly through the ordering workflow, reducing manual order-handling steps by about 60%.',
       },
       {
         title: 'Performance optimization',
-        body: 'The configuration experience depended on loading product content quickly. Optimization work reduced Largest Contentful Paint (LCP) from 4.2 seconds to 0.9 seconds.',
+        body: 'The interactive customization experience depended on loading product content quickly. Frontend and asset optimization reduced Largest Contentful Paint (LCP) from 4.2 seconds to 0.9 seconds.',
       },
     ],
   },
   {
     id: 'zment',
     name: 'ZMent ERP',
-    title: 'ZMent ERP — Multi-Outlet Inventory & POS Platform',
-    category: 'ERP · Point of Sale · Inventory',
+    title: 'ZMent ERP — Multi-Outlet Inventory & POS',
+    category: 'Independent Client Project · ERP · Inventory & POS',
     period: 'Feb 2022 – Oct 2024',
     description:
-      'Built a platform handling 10,000+ daily transactions and 50+ concurrent users with 5+ payment methods. Improved checkout time by about 40% and reduced stock commit errors by 70%+. Mentored two developers and led a four-person team for six months.',
+      'Engineered a PostgreSQL and Redis-backed ERP platform processing 10,000+ daily transactions with 50+ concurrent users and 5+ payment methods.',
     contribution:
-      'I built the checkout and inventory workflows, integrated Redis, and helped establish automated testing and deployment.',
-    technologies: ['Node.js', 'React', 'SQL', 'PostgreSQL', 'Redis', 'Docker'],
+      'Designed batch inventory and POS workflows, reducing checkout time by about 40% and stock commit errors by over 70%. Led a four-person team for six months, mentoring two junior developers and managing task assignments, client meetings, and requirement analysis.',
+    technologies: ['Node.js', 'React', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker'],
     metrics: [
       { value: '10,000+', label: 'daily transactions' },
       { value: '50+', label: 'concurrent users' },
@@ -85,33 +90,33 @@ export const projects: Project[] = [
     details: [
       {
         title: 'Connecting stock and sales across outlets',
-        body: 'Production facilities and retail outlets needed a shared record of stock as batches moved between locations and items were sold. I built batch inventory workflows and a checkout flow supporting five or more payment methods.',
+        body: 'Production facilities and retail outlets needed a shared record of stock as batches moved between locations and items were sold. I designed batch inventory workflows and a POS checkout flow supporting five or more payment methods.',
       },
       {
         title: 'Reliable transactions and outlet permissions',
-        body: 'I built the transactional workflows on PostgreSQL and integrated Redis into the platform. I implemented role-based access control so users could carry out the checkout and stock operations their roles allowed.',
+        body: 'I engineered transactional workflows backed by PostgreSQL and Redis. I implemented role-based access control so users could perform the checkout and inventory operations permitted for their roles.',
       },
       {
-        title: 'Testing and team leadership',
-        body: 'I helped establish automated testing, CI/CD, Docker-based deployment, and production monitoring. I mentored two developers and led the four-person team for six months, working directly with clients, a project manager, and a designer.',
+        title: 'Team leadership and engineering standards',
+        body: 'I led a four-person team for six months, mentoring two junior developers and managing task assignments, client meetings, and requirement analysis while establishing automated testing, CI/CD, and Docker-based deployments.',
       },
       {
         title: 'Production outcomes',
-        body: 'The platform handled 10,000+ daily transactions and 50+ concurrent users. Checkout time fell by approximately 40%, and stock commit errors fell by more than 70%.',
+        body: 'The platform handled 10,000+ daily transactions and 50+ concurrent users. Checkout time decreased by approximately 40%, and stock commit errors dropped by more than 70%.',
       },
     ],
   },
   {
     id: 'vendor-data',
     name: 'Vendor Product Data Platform',
-    title: 'Vendor Product Data Platform — Isolated Processing Pipeline',
-    category: 'Backend · Data Pipelines · Docker',
+    title: 'Vendor Product Data Platform',
+    category: 'Elite Wheel Distributors · Backend · Data Pipelines · Docker',
     period: 'Jan 2025 – May 2026',
     description:
-      'Engineered an isolated Docker pipeline for 288,820+ products and 441,755+ images, with resumable checkpoints and live Redis and Socket.IO monitoring.',
+      'Architected fault-isolated Docker data pipelines processing 288,820+ products and 441,755+ images across vendor sources.',
     contribution:
-      'I designed the resumable pipeline and built real-time monitoring for processing progress.',
-    technologies: ['Docker', 'Redis', 'Socket.IO', 'Node.js', 'SQL', 'PostgreSQL'],
+      'Implemented concurrent scraping, database checkpointing, resumable processing, and real-time monitoring using Redis and Socket.IO.',
+    technologies: ['Python', 'Docker', 'Redis', 'Socket.IO', 'Node.js', 'PostgreSQL'],
     metrics: [
       { value: '288,820+', label: 'products processed' },
       { value: '441,755+', label: 'images processed' },
@@ -120,16 +125,16 @@ export const projects: Project[] = [
     docs: 'https://tinyurl.com/yeyv5vfd',
     details: [
       {
-        title: 'Normalizing multiple sources',
-        body: 'Vendor sources provided product records and images in different formats. I built a pipeline that collected, transformed, and validated them into a consistent catalog. Docker isolated processing so workers could be maintained separately.',
+        title: 'Fault-isolated Docker pipelines',
+        body: 'Vendor sources provided product records and images in disparate formats. I architected fault-isolated Docker data pipelines that collected, transformed, and validated records across 288,820+ products and 441,755+ images.',
       },
       {
-        title: 'Resumable checkpoints',
-        body: 'Restarting a long run from the beginning repeats completed work. I stored checkpoints in the database so processing could resume from saved progress after an interruption.',
+        title: 'Concurrent scraping and database checkpointing',
+        body: 'Restarting long scraping and ingestion runs from scratch wastes completed work. I implemented concurrent scraping and stored checkpoints in the database so processing could resume cleanly from saved progress after any interruption.',
       },
       {
         title: 'Real-time monitoring',
-        body: 'I used Redis pub/sub and Socket.IO to surface processing updates in real time. Operators could see how runs were progressing across 288,820+ products and 441,755+ images.',
+        body: 'I used Redis and Socket.IO to broadcast live pipeline progress and worker telemetry, giving operators real-time visibility into processing runs.',
       },
     ],
   },
@@ -139,21 +144,26 @@ export const experience = [
   {
     company: 'Elite Wheel Distributors, Inc.',
     role: 'Full Stack Engineer',
+    stack: 'TypeScript, Next.js, Python, PostgreSQL, MongoDB',
     period: 'Nov 2024 – May 2026',
     location: 'USA · Remote',
     achievements: [
-      'Built e-commerce applications and third-party integrations with Next.js, Node.js and TypeScript, serving 2,000+ daily visitors.',
-      'Engineered a white-label B2B platform for 300+ reseller tenants with isolated data, dynamic pricing and automated onboarding, reducing manual order-handling steps by about 60%.',
+      'Architected e-commerce applications and third-party API integrations serving 2,000+ daily visitors.',
+      'Engineered a multi-tenant B2B SaaS platform for 300+ reseller tenants with isolated data, dynamic pricing, and automated onboarding.',
+      'Developed automated vendor data scraping workflows and managed production deployments and debugging.',
+      'Collaborated with product managers, UI/UX designers, and API providers on responsive design and Agile methodologies; conducted code reviews.',
     ],
   },
   {
     company: 'DevelopersTroop',
     role: 'Full Stack Engineer',
+    stack: 'TypeScript, PHP, MySQL',
     period: 'Feb 2022 – Oct 2024',
     location: 'Dhaka, Bangladesh',
     achievements: [
       'Integrated product compatibility and filtering APIs, improving product matching accuracy from 70% to 95%.',
-      'Improved asset delivery for 5+ websites, raising GTmetrix performance scores from 55% to 99% and delivered five e-commerce projects end-to-end.',
+      'Optimized CDN caching and asset delivery across 5+ websites, raising GTmetrix performance scores from 55% to 99%.',
+      'Delivered five e-commerce applications across the software development life cycle (SDLC), from requirement analysis to production deployment; developed automated data scraping solutions.',
     ],
   },
 ]
@@ -161,27 +171,27 @@ export const experience = [
 export const skills = [
   {
     category: 'Core',
-    tools: ['TypeScript', 'Next.js', 'Node.js', 'REST API', 'React', 'JavaScript'],
+    tools: ['TypeScript', 'React', 'Next.js', 'Node.js', 'Express.js', 'REST API Development'],
   },
   {
-    category: 'Data & state',
-    tools: ['SQL', 'MongoDB', 'Redis', 'Redux', 'RTK Query', 'Socket.IO', 'PostgreSQL'],
+    category: 'Data',
+    tools: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Socket.IO'],
   },
   {
-    category: 'Cloud & quality',
-    tools: ['Docker', 'AWS', 'CI/CD', 'Unit testing', 'End-to-end testing', 'Git'],
+    category: 'Infrastructure & Quality',
+    tools: ['AWS (EC2, S3)', 'Docker', 'Linux', 'Nginx', 'Git', 'CI/CD', 'Vitest', 'E2E testing'],
   },
 ]
 
 export const education = {
   degree: 'BSc in Computer Science and Engineering',
   institution: 'Daffodil International University',
-  period: 'Feb 2023 – Expected Dec 2026',
+  period: 'Feb 2023 – Dec 2026',
 }
 
 export const earlierExperience = {
-  title: 'Earlier experience',
-  description: 'Freelance developer — PHP, WordPress and MERN projects (2019–2022)',
+  title: 'Earlier Experience',
+  description: 'Freelance Developer — PHP, WordPress, and MERN applications (2019–2022)',
 }
 
 export const languages = [

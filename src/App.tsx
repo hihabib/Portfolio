@@ -130,11 +130,7 @@ function Hero() {
         <a href={profile.resume} target="_blank" rel="noopener noreferrer">Resume (PDF) ↗</a>
       </div>
 
-      <p className="hero-description">
-        Full-stack developer building high-scale e-commerce, ERP, and data platform systems.
-        Experienced in TypeScript, Next.js, and Node.js, delivering transactional APIs, resilient
-        processing pipelines, and high-performance interfaces.
-      </p>
+      <p className="hero-description">{profile.summary}</p>
 
       <div className="hero-actions">
         <a className="button button-primary" href={profile.resume} target="_blank" rel="noopener noreferrer">
@@ -185,7 +181,7 @@ function ProjectItem({ project }: { project: Project }) {
         )}
         {project.docs && (
           <a href={project.docs} target="_blank" rel="noopener noreferrer">
-            Project Docs ↗
+            Project Details ↗
           </a>
         )}
       </div>
@@ -248,18 +244,18 @@ function About() {
       <h2 id="about-title">About Me</h2>
       <div>
         <p>
-          I am a full-stack developer based in Dhaka, Bangladesh. I build web applications and
-          third-party integrations with Next.js, Node.js, and TypeScript, serving thousands of daily visitors.
+          I am a full-stack developer based in Dhaka, Bangladesh, with 4+ years of experience building
+          scalable SaaS platforms, high-throughput ERP systems, backend APIs, and automated data pipelines.
         </p>
         <p>
-          My work spans the full stack: from frontend architecture and Core Web Vitals optimization
-          to transactional SQL workflows, resilient Docker processing pipelines, and multi-tenant platforms.
-          I work directly with clients, designers, and project managers to translate complex business
-          requirements into dependable, maintainable software.
+          My work spans the full stack: from Next.js and React frontend architecture and Core Web Vitals
+          optimization to PostgreSQL, MySQL, MongoDB, and Redis-backed services, concurrent Python/Docker
+          scraping pipelines, and production AWS/Nginx deployments. I collaborate closely with product
+          managers, designers, and API providers under Agile workflows.
         </p>
         <p>
-          I have mentored developers, led four-person engineering teams, and delivered client and
-          enterprise systems from initial conception to production handover.
+          I have led a four-person engineering team, mentored junior developers, conducted code reviews,
+          and delivered end-to-end client and enterprise systems across the full SDLC.
         </p>
       </div>
     </section>
@@ -278,7 +274,7 @@ function Experience() {
               <h3 className="job-company">{job.company}</h3>
               <span className="project-period">{job.period}</span>
             </div>
-            <p className="job-role-line">{job.role} · {job.location}</p>
+            <p className="job-role-line">{job.role} — {job.stack} · {job.location}</p>
             <ul className="job-achievements">
               {job.achievements.map((achievement) => (
                 <li key={achievement}>{achievement}</li>
@@ -346,7 +342,7 @@ function Contact() {
         <li>
           <strong>LinkedIn:</strong>
           <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
-            {profile.linkedin.replace('https://', '')}
+            {profile.linkedin.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, '')}
           </a>
         </li>
         <li>
